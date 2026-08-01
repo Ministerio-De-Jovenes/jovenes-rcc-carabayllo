@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio de Jóvenes RCC Carabayllo | Sitio Oficial</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins & DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rcc: {
+                            blue: '#1e1b4b',      // Azul marino carismático
+                            royal: '#2563eb',     // Azul eléctrico principal
+                            red: '#dc2626',       // Rojo fuego
+                            orange: '#ea580c',    // Naranja pentecostés
+                            gold: '#f59e0b',      // Amarillo dorado
+                            light: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-flame {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 40%, #7f1d1d 80%, #991b1b 100%);
+        }
+        .gradient-gold-red {
+            background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%);
+        }
+        .text-gradient-flame {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 50%, #eab308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-rcc-red selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 p-1 flex items-center justify-center overflow-hidden shadow-lg shadow-blue-500/10 group-hover:scale-105 transition-transform">
+                        <!-- Imagen de logo preparada para GitHub -->
+                        <img src="logo.png" alt="Logo RCC Carabayllo" class="w-full h-full object-contain" onerror="this.onerror=null; this.outerHTML='<i class=\'fa-solid fa-fire-flame-curved text-amber-400 text-2xl\'></i>';">
+                    </div>
+                    <div>
+                        <span class="block font-poppins font-bold text-lg text-white leading-tight">Ministerio de Jóvenes</span>
+                        <span class="block font-poppins font-extrabold text-xs tracking-wider text-rcc-red uppercase">RCC Carabayllo</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-4">
+                    <a href="#inicio" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Inicio</a>
+                    <a href="#eventos" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Eventos 2026</a>
+                    <a href="#delegados" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Delegados Zonales</a>
+                    <a href="#nosotros" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Misión & Pilares</a>
+                    <a href="#oracion" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition">Peticiones</a>
+                </div>
+
+                <!-- CTA Button Direct WhatsApp -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/51946251623?text=Hola,%20deseo%20mayor%20información%20sobre%20los%20eventos%20de%20la%20RCC%20Carabayllo" target="_blank" class="gradient-gold-red px-5 py-2.5 rounded-full font-poppins font-semibold text-sm text-white shadow-lg shadow-red-600/30 hover:opacity-95 hover:scale-105 transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        Inscripciones
+                    </a>
+                </div>
+
+                <!-- Mobile menu toggle button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white p-2 rounded-md focus:outline-none" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Inicio</a>
+            <a href="#eventos" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Eventos 2026</a>
+            <a href="#delegados" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Delegados Zonales</a>
+            <a href="#nosotros" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Misión & Pilares</a>
+            <a href="#oracion" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800">Peticiones de Oración</a>
+            <div class="pt-2">
+                <a href="https://wa.me/51946251623?text=Hola,%20deseo%20mayor%20información%20sobre%20los%20eventos%20de%20la%20RCC%20Carabayllo" target="_blank" class="w-full gradient-gold-red py-3 rounded-xl font-poppins font-bold text-center text-white flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    Inscribirse por WhatsApp (946 251 623)
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-[88vh] gradient-flame flex items-center overflow-hidden py-16 lg:py-24">
+        <!-- Background decorative flames -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-rcc-red/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-rcc-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Column -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-md shadow-inner">
+                        <span class="flex h-2.5 w-2.5 rounded-full bg-rcc-red animate-ping"></span>
+                        <span class="text-xs font-poppins font-bold uppercase tracking-wider text-amber-400">Diócesis de Carabayllo</span>
+                    </div>
+
+                    <h1 class="font-poppins font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-none">
+                        ¡Jóvenes encendidos por el <span class="text-gradient-flame">Espíritu Santo</span>!
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Llamados a renovar la Iglesia con valentía, amor y disponibilidad. Encuentra tu comunidad, vive la experiencia del Bautismo en el Espíritu Santo y forma parte de nuestra misión.
+                    </p>
+
+                    <!-- Quote Badge -->
+                    <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/60 max-w-xl mx-auto lg:mx-0">
+                        <p class="text-amber-300 font-poppins font-medium text-sm sm:text-base italic">
+                            <i class="fa-solid fa-quote-left mr-2 text-rcc-red"></i>
+                            "Aviva el fuego del don de Dios que hay en ti"
+                            <span class="block text-right not-italic font-bold text-slate-400 text-xs mt-1">— 2 Timoteo 1, 6</span>
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#eventos" class="gradient-gold-red px-8 py-4 rounded-full font-poppins font-bold text-white text-base shadow-xl shadow-red-600/30 hover:scale-105 transition flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-fire text-amber-200"></i>
+                            Ver Próximos Eventos
+                        </a>
+                        <a href="#delegados" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-8 py-4 rounded-full font-poppins font-semibold text-base transition flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-users text-blue-400"></i>
+                            Ubicar mi Zona
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Column -->
+                <div class="lg:col-span-5 relative hidden lg:block">
+                    <!-- Decoración Abstracta Fuego/Espíritu -->
+                    <div class="relative w-full aspect-square max-w-md mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-rcc-red to-rcc-orange rounded-[40%] rotate-45 blur-2xl opacity-40 pulse-slow"></div>
+                        <div class="absolute inset-4 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col items-center justify-center p-8 text-center z-10 glass-card">
+                            <i class="fa-solid fa-dove text-8xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] mb-6"></i>
+                            <h3 class="font-poppins font-bold text-2xl text-white mb-2">Comunidad en Acción</h3>
+                            <p class="text-slate-400 text-sm">Somos la Renovación Carismática Católica de la Diócesis de Carabayllo, jóvenes viviendo en plenitud.</p>
+                            <div class="mt-6 flex -space-x-4">
+                                <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-rcc-red flex items-center justify-center font-bold text-white"><i class="fa-solid fa-guitar"></i></div>
+                                <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-rcc-orange flex items-center justify-center font-bold text-white"><i class="fa-solid fa-hands-praying"></i></div>
+                                <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-rcc-gold flex items-center justify-center font-bold text-white"><i class="fa-solid fa-book-bible"></i></div>
+                                <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-slate-700 flex items-center justify-center font-bold text-white text-xs">+1K</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METAS 2026 SECTION -->
+    <section class="py-16 bg-slate-900 border-b border-slate-800 relative z-20 -mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-800/80 backdrop-blur-xl border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700">
+                    <div class="p-4">
+                        <i class="fa-solid fa-arrow-trend-up text-3xl text-rcc-gold mb-3"></i>
+                        <h4 class="font-poppins font-bold text-xl text-white mb-1">Crecimiento Zonal</h4>
+                        <p class="text-slate-400 text-sm">Fortalecer grupos de oración en las 5 zonas de nuestra diócesis.</p>
+                    </div>
+                    <div class="p-4 pt-8 md:pt-4">
+                        <i class="fa-solid fa-handshake-angle text-3xl text-rcc-red mb-3"></i>
+                        <h4 class="font-poppins font-bold text-xl text-white mb-1">Impacto Social</h4>
+                        <p class="text-slate-400 text-sm">Misiones solidarias mensuales en sectores vulnerables.</p>
+                    </div>
+                    <div class="p-4 pt-8 md:pt-4">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-rcc-royal mb-3"></i>
+                        <h4 class="font-poppins font-bold text-xl text-white mb-1">Formación Continua</h4>
+                        <p class="text-slate-400 text-sm">Seminarios de Vida y Cursos de Crecimiento anuales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTOS SECTION -->
+    <section id="eventos" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-rcc-gold font-bold tracking-widest uppercase text-sm mb-2 block">Calendario 2026</span>
+                <h2 class="font-poppins font-extrabold text-3xl sm:text-4xl text-white mb-4">Agenda Carismática</h2>
+                <div class="w-20 h-1.5 bg-rcc-red mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-400 text-lg">Participa en nuestros retiros, asambleas y jornadas. ¡Anímate a vivir esta experiencia de fe con otros jóvenes!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-rcc-red/20">
+                    <div class="h-48 bg-slate-700 relative overflow-hidden">
+                        <!-- Imagen de evento con imagen fallback preparada -->
+                        <img src="evento_generacion_fuego.jpg" alt="Retiro Generación de Fuego" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544427920-c49ccfaff725?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-rcc-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Retiro Diocesano</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-slate-400 text-sm mb-3 font-medium">
+                            <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-rcc-gold"></i> 15-17 Mayo</span>
+                            <span>&bull;</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rcc-gold"></i> Casa de Retiro</span>
+                        </div>
+                        <h3 class="font-poppins font-bold text-xl text-white mb-3 group-hover:text-rcc-orange transition">Retiro "Generación de Fuego"</h3>
+                        <p class="text-slate-400 text-sm mb-5 line-clamp-2">Tres días de alabanza, prédicas y adoración profunda. Un encuentro personal con Cristo Vivo que transformará tu realidad.</p>
+                        <a href="#" class="text-rcc-gold font-bold text-sm uppercase hover:text-amber-300 transition flex items-center gap-2 group-hover:gap-3">
+                            Ver detalles <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-rcc-royal/20">
+                    <div class="h-48 bg-slate-700 relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-guitar text-5xl text-slate-500 opacity-50 absolute"></i>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-rcc-blue to-slate-800 opacity-90"></div>
+                        <div class="absolute bottom-4 left-4 z-10">
+                            <span class="bg-rcc-royal text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Formación</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-slate-400 text-sm mb-3 font-medium">
+                            <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-rcc-gold"></i> 12 Junio</span>
+                            <span>&bull;</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rcc-gold"></i> Parroquia Central</span>
+                        </div>
+                        <h3 class="font-poppins font-bold text-xl text-white mb-3 group-hover:text-blue-400 transition">Taller de Ministerios de Música</h3>
+                        <p class="text-slate-400 text-sm mb-5 line-clamp-2">Capacitación técnica y espiritual para ministerios de alabanza. "El que canta bien, ora dos veces".</p>
+                        <a href="#" class="text-blue-400 font-bold text-sm uppercase hover:text-blue-300 transition flex items-center gap-2 group-hover:gap-3">
+                            Ver detalles <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-rcc-orange/20">
+                    <div class="h-48 bg-slate-700 relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-users text-5xl text-slate-500 opacity-50 absolute"></i>
+                        <div class="absolute inset-0 bg-gradient-to-tl from-rcc-orange/40 t
